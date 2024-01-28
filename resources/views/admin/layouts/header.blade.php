@@ -63,24 +63,14 @@
                         <div class="media mx-auto">
                             <img src="{{ asset('adminAssets/en/assets/img/90x90.jpg') }}" class="img-fluid mr-2" alt="avatar">
                             <div class="media-body">
-                                <h5>Alan Green</h5>
-                                <p>Web Developer</p>
+                                <h5>{{ auth()->user()->name }}</h5>
+                                <p>ADMIN</p>
                             </div>
                         </div>
                     </div>
                     <div class="dropdown-item">
                         <a href="user_profile.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span>My Profile</span>
-                        </a>
-                    </div>
-                    <div class="dropdown-item">
-                        <a href="apps_mailbox.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg> <span>My Inbox</span>
-                        </a>
-                    </div>
-                    <div class="dropdown-item">
-                        <a href="auth_lockscreen.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> <span>Lock Screen</span>
                         </a>
                     </div>
                     <div class="dropdown-item">
@@ -109,7 +99,7 @@
 
             <ul class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
-                    <a href="index.html">
+                    <a href="{{ route('admin.index') }}">
                         <img src="{{ asset('adminAssets/en/assets/img/90x90.jpg') }}" class="navbar-logo" alt="logo">
                     </a>
                 </li>
@@ -151,7 +141,7 @@
                 </li>
 
                 <li class="menu">
-                    <a href="#components" aria-expanded="false" class="dropdown-toggle">
+                    <a href="{{ route('admin.service.index') }}" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
                             <span>Services</span>

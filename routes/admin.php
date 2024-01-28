@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
@@ -64,6 +65,17 @@ Route::group(
 
         Route::group(['prefix' => 'category', 'as' => 'category.'], function () {
             Route::controller(CategoryController::class)->group(function () {
+                Route::get('', 'index')->name('index');
+                Route::get('create', 'create')->name('create');
+                Route::post('store', 'store')->name('store');
+                Route::delete('delete', 'delete')->name('delete');
+                Route::get('edit/{id}', 'edit')->name('edit');
+                Route::put('update', 'update')->name('update');
+            });
+        });
+
+        Route::group(['prefix' => 'service', 'as' => 'service.'], function () {
+            Route::controller(ServiceController::class)->group(function () {
                 Route::get('', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
