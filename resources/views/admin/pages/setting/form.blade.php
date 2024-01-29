@@ -34,7 +34,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($setting) ? 'Update' : 'Create New' }} Setting</h4>
+                                        <h4>{{ isset($setting) ? 'Update Setting' : 'Create New Setting' }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -44,9 +44,9 @@
                                     @csrf
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Title English</span>
+                                            <span class="input-group-text">{{ __('Title English') }}</span>
                                         </div>
-                                        <input type="text" name="title_en" value="{{ old('title_en', isset($setting) ? $setting->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
+                                        <input type="text" style="direction: ltr;" name="title_en" value="{{ old('title_en', isset($setting) ? $setting->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('title_en')
@@ -56,7 +56,7 @@
                                     <div class="input-group mb-4">
                                         <input type="text" name="title_ar" value="{{ old('title_ar', isset($setting) ? $setting->getTranslation('title', 'ar') : '') }}" style="direction: rtl" class="@error('title_ar') is-invalid @enderror form-control">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Title Arabic</span>
+                                            <span class="input-group-text">{{ __('Title Arabic') }}</span>
                                         </div>
                                     </div>
 
@@ -66,7 +66,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Email</span>
+                                            <span class="input-group-text">{{ __('Email') }}</span>
                                         </div>
                                         <input type="text" name="email" value="{{ old('email', $setting->email ?? '') }}" class="@error('email') is-invalid @enderror form-control">
                                     </div>
@@ -77,7 +77,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Phone</span>
+                                            <span class="input-group-text">{{ __('Phone') }}</span>
                                         </div>
                                         <input type="text" name="phone" value="{{ old('phone', $setting->phone ?? '') }}" class="@error('phone') is-invalid @enderror form-control">
                                     </div>
@@ -88,7 +88,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Facebook</span>
+                                            <span class="input-group-text">{{ __('Facebook') }}</span>
                                         </div>
                                         <input type="text" name="facebook" value="{{ old('facebook', $setting->facebook ?? '') }}" class="@error('facebook') is-invalid @enderror form-control">
                                     </div>
@@ -99,7 +99,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Whatsapp</span>
+                                            <span class="input-group-text">{{ __('Whatsapp') }}</span>
                                         </div>
                                         <input type="text" name="whatsapp" value="{{ old('whatsapp', $setting->whatsapp ?? '') }}" class="@error('whatsapp') is-invalid @enderror form-control">
                                     </div>
@@ -110,7 +110,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Instagram</span>
+                                            <span class="input-group-text">{{ __('Instagram') }}</span>
                                         </div>
                                         <input type="text" name="instagram" value="{{ old('instagram', $setting->instagram ?? '') }}" class="@error('instagram') is-invalid @enderror form-control">
                                     </div>
@@ -121,7 +121,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Tiktok</span>
+                                            <span class="input-group-text">{{ __('Tiktok') }}</span>
                                         </div>
                                         <input type="text" name="tiktok" value="{{ old('tiktok', $setting->tiktok ?? '') }}" class="@error('tiktok') is-invalid @enderror form-control">
                                     </div>
@@ -132,7 +132,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Snapchat</span>
+                                            <span class="input-group-text">{{ __('Snapchat') }}</span>
                                         </div>
                                         <input type="text" name="snapchat" value="{{ old('snapchat', $setting->snapchat ?? '') }}" class="@error('snapchat') is-invalid @enderror form-control">
                                     </div>
@@ -143,9 +143,9 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Location English</span>
+                                            <span class="input-group-text">{{ __('Location English') }}</span>
                                         </div>
-                                        <input type="text" name="location_en" value="{{ old('location_en', isset($setting) ? $setting->getTranslation('location', 'en') : '') }}" class="@error('location_en') is-invalid @enderror form-control">
+                                        <input type="text" style="direction: ltr;" name="location_en" value="{{ old('location_en', isset($setting) ? $setting->getTranslation('location', 'en') : '') }}" class="@error('location_en') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('location_en')
@@ -155,7 +155,7 @@
                                     <div class="input-group mb-4">
                                         <input type="text" name="location_ar" value="{{ old('location_ar', isset($setting) ? $setting->getTranslation('location', 'ar') : '') }}" style="direction: rtl" class="@error('location_ar') is-invalid @enderror form-control">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">Location Arabic</span>
+                                            <span class="input-group-text">{{ __('Location Arabic') }}</span>
                                         </div>
                                     </div>
 
@@ -164,7 +164,7 @@
                                     @enderror
 
                                     <div class="form-group mb-4">
-                                        <label>Opening From</label>
+                                        <label>{{ __('Opening From') }}</label>
                                         <select name="opening_from" class="form-control">
                                             <option value="saturday">Saturday</option>
                                             <option value="sunday">Sunday</option>
@@ -181,15 +181,15 @@
                                     @enderror
 
                                     <div class="form-group mb-4">
-                                        <label>Opening To</label>
+                                        <label>{{ __('Opening To') }}</label>
                                         <select name="opening_to" class="form-control">
-                                            <option value="saturday">Saturday</option>
-                                            <option value="sunday">Sunday</option>
-                                            <option value="monday">Monday</option>
-                                            <option value="tuesday">Tuesday</option>
-                                            <option value="wednesday">Wednesday</option>
-                                            <option value="thursday">Thursday</option>
-                                            <option value="friday">Friday</option>
+                                            <option value="saturday">{{ __('Saturday') }}</option>
+                                            <option value="sunday">{{ __('Sunday') }}</option>
+                                            <option value="monday">{{ __('Monday') }}</option>
+                                            <option value="tuesday">{{ __('Tuesday') }}</option>
+                                            <option value="wednesday">{{ __('Wednesday') }}</option>
+                                            <option value="thursday">{{ __('Thursday') }}</option>
+                                            <option value="friday">{{ __('Friday') }}</option>
                                         </select>
                                     </div>
 
@@ -199,7 +199,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">Time From</span>
+                                            <span class="input-group-text">{{ __('Time From') }}</span>
                                         </div>
                                         <input type="time" name="time_from" value="{{ old('time_from', $setting->time_from ?? '') }}" class="@error('time_from') is-invalid @enderror form-control">
                                     </div>
@@ -210,7 +210,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">Time To</span>
+                                            <span class="input-group-text">{{ __('Time To') }}</span>
                                         </div>
                                         <input type="time" name="time_to" value="{{ old('time_to', $setting->time_to ?? '') }}" class="@error('time_to') is-invalid @enderror form-control">
                                     </div>
@@ -224,7 +224,7 @@
                                             <div class="widget-header">
                                                 <div class="row">
                                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                                        <h4>Logo</h4>
+                                                        <h4>{{ __('Logo') }}</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -245,7 +245,7 @@
                                     @error('logo')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-                                    <button type="submit" class="btn btn-outline-info">{{ isset($setting) ? 'Update' : 'Create' }}</button>
+                                    <button type="submit" class="btn btn-outline-info">{{ isset($setting) ? __('Update') : __('Create') }}</button>
                                 </form>
 
                             </div>

@@ -3,29 +3,34 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Contact\DeleteContactRequest;
-use App\Models\Contact;
+use App\Http\Interfaces\Admin\ContactInterface;
+use App\Http\Requests\Admin\Contact\UpdateContactRequest;
 
 class ContactController extends Controller
 {
-    public function index()
+    private $interface;
+    public function __construct(ContactInterface $interface)
     {
-        $contacts = Contact::select(['id', 'name', 'email', 'phone', 'subject', 'message', 'status'])->get();
-        return view('admin.pages.contact.index', compact('contacts'));
+        $this->interface = $interface;
     }
 
-    public function delete(DeleteContactRequest $request)
+    public function index()
     {
-        $contact = Contact::where([
-            ['status', 'Approved'],
-            ['id', $request->id]
-        ])->first();
-        if ($contact) {
-            $contact->delete();
-            toast('Contact Was Deleted Successfully', 'success');
-            return back();
-        }
-        toast('Sorry, Can\'t Delete This Contact Record', 'error');
-        return back();
+        return $this->interface->index();
+    }
+
+    public function delete($id)
+    {
+        return $this->interface->delete($id);
+    }
+
+    public function edit($id)
+    {
+        return $this->interface->edit($id);
+    }
+
+    public function update(UpdateContactRequest $request)
+    {
+        return $this->interface->update($request);
     }
 }

@@ -3,73 +3,44 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Slider\DeleteSliderRequest;
+use App\Http\Interfaces\Admin\SliderInterface;
 use App\Http\Requests\Admin\Slider\SliderRequest;
-use App\Http\Traits\ImageTrait;
-use App\Models\Slider;
 
 class SliderController extends Controller
 {
-    const PATH = 'slider';
-    use ImageTrait;
+    private $interface;
+    public function __construct(SliderInterface $interface)
+    {
+        $this->interface = $interface;
+    }
+
     public function index()
     {
-        $sliders = Slider::select(['id', 'title', 'image'])->get();
-        return view('admin.pages.slider.index', compact('sliders'));
+        return $this->interface->index();
     }
 
     public function create()
     {
-        return view('admin.pages.slider.form');
+        return $this->interface->create();
     }
 
     public function store(SliderRequest $request)
     {
-        $imageName = $this->uploadImage($request->image, self::PATH);
-        Slider::create([
-            'title' => [
-                'en' => $request->title_en,
-                'ar' => $request->title_ar
-            ],
-            'image' => $imageName
-        ]);
-        toast('Slider Was Created Successfully', 'success');
-        return redirect(route('admin.slider.index'));
+        return $this->interface->store($request);
     }
 
-    public function delete(DeleteSliderRequest $request)
+    public function delete($id)
     {
-        $slider = Slider::select('id', 'image')->find($request->id);
-        unlink(public_path($slider->image));
-        $slider->delete();
-        toast('Slider Was Deleted Successfully', 'success');
-        return back();
+        return $this->interface->delete($id);
     }
 
     public function edit($id)
     {
-        $slider = Slider::select('id', 'title', 'image')->find(base64_decode($id));
-        if ($slider) {
-            return view('admin.pages.slider.form', compact('slider'));
-        }
-        toast('Sorry, Can\'t Slider Found', 'error');
-        return back();
+        return $this->interface->edit($id);
     }
 
     public function update(SliderRequest $request)
     {
-        $slider = Slider::find($request->id);
-        if ($request->has('image')) {
-            $imageName = $this->uploadImage($request->image, self::PATH, $slider->image);
-        }
-        $slider->update([
-            'title' => [
-                'en' => $request->title_en,
-                'ar' => $request->title_ar
-            ],
-            'image' => $imageName ?? $slider->getRawOriginal('image')
-        ]);
-        toast('Slider Was Updated Successfully', 'success');
-        return redirect(route('admin.slider.index'));
+        return $this->interface->update($request);
     }
 }

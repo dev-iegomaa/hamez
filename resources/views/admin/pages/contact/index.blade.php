@@ -19,8 +19,8 @@
 @section('content')
     <!--  BEGIN CONTENT AREA  -->
     <div id="content" class="main-content">
-        <div class="container">
-            <div class="container">
+        <div class="container-fluid">
+            <div class="container-fluid">
 
                 <div class="row layout-top-spacing">
 
@@ -29,63 +29,65 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Contact Table</h4>
+                                        <h4>{{ __('Contact Table') }}</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
                                 <div class="table-responsive">
                                     <table class="table mb-4">
-                                        <caption>List of all contacts</caption>
+                                        <caption>{{ __('List of all contacts') }}</caption>
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Subject</th>
-                                            <th>Message</th>
-                                            <th>Status</th>
+                                            <th>{{ __('Name') }}</th>
+                                            <th>{{ __('Email') }}</th>
+                                            <th>{{ __('Phone') }}</th>
+                                            <th>{{ __('Subject') }}</th>
+                                            <th>{{ __('Message') }}</th>
+                                            <th>{{ __('Status') }}</th>
                                             <th>{{ __('Delete') }}</th>
+                                            <th>{{ __('Update') }}</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             @foreach($contacts as $key => $contact)
                                                 <tr>
-                                                    <td class="text-center">{{ ++$key }}</td>
+                                                    <td class="text-center">{{ $contact->id }}</td>
                                                     <td>{{ $contact->name }}</td>
                                                     <td>{{ $contact->email }}</td>
                                                     <td>{{ $contact->phone }}</td>
                                                     <td>{{ $contact->subject }}</td>
                                                     <td>{{ $contact->message }}</td>
-                                                    <td class="text-center">
+                                                    <td>
                                                         @switch($contact->status)
                                                             @case('Approved')
-                                                                <span class=" shadow-none badge outline-badge-primary">Approved</span>
+                                                                <span class=" shadow-none badge outline-badge-success">{{ __('Approved') }}</span>
                                                                 @break
                                                             @case('Pending')
-                                                                <span class="badge outline-badge-secondary shadow-none">Pending</span>
+                                                                <span class="badge outline-badge-warning">{{ __('Pending') }}</span>
                                                                 @break
                                                             @case('Rejected')
-                                                                <span class="badge outline-badge-danger shadow-none">Rejected</span>
+                                                                <span class="badge outline-badge-danger">{{ __('Rejected') }}</span>
                                                                 @break
                                                             @case('In Progress')
-                                                                <span class="badge outline-badge-info shadow-none">In Progress</span>
+                                                                <span class="badge outline-badge-info">{{ __('In Progress') }}</span>
                                                                 @break
                                                         @endswitch
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('admin.contact.delete') }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="hidden" name="id" value="{{ $contact->id }}">
-                                                            <input type="submit" class="btn btn-outline-danger" value="{{ __('Delete') }}">
-                                                        </form>
+                                                        <a href="{{ route('admin.contact.delete', [base64_encode($contact->id)]) }}" data-confirm-delete="true" class="btn btn-outline-danger">{{ __('Delete') }}</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{ route('admin.contact.edit', [base64_encode($contact->id)]) }}" class="btn btn-outline-warning">{{ __('Update') }}</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="d-flex justify-content-center">
+                                        {!! $contacts->links() !!}
+                                    </div>
                                 </div>
                             </div>
                         </div>

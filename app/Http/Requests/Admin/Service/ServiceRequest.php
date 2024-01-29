@@ -20,7 +20,7 @@ class ServiceRequest extends FormRequest
             'title_en' => 'required|string|max:255',
             'title_ar' => 'required|string|max:255',
             'price_en' => 'required|numeric',
-            'price_ar' => 'required|numeric',
+            'price_ar' => 'required|regex:/^[\x{0660}-\x{0669}]+\.?[\x{0660}-\x{0669}]+$/u',
             'description_en' => 'required|string',
             'description_ar' => 'required|string',
             'category_id' => 'required|integer|exists:categories,id'

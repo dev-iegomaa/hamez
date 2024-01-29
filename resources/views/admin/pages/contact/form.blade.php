@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    User | {{ (isset($user)) ? 'Update' : 'Create' }}
+    Contact | Update
 @endsection
 
 @push('css')
@@ -30,23 +30,21 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($user) ? 'Update' : 'Create New' }} User</h4>
+                                        <h4>{{ __('Update Contact') }}</h4>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
 
-                                <form action="{{ isset($user) ? route('admin.user.update') : route('admin.user.store') }}" method="post" enctype="multipart/form-data">
-                                    @if(isset($user))
-                                        @method('PUT')
-                                        <input type="hidden" name="id" value="{{ $user->id }}">
-                                    @endif
+                                <form action="{{ route('admin.contact.update') }}" method="post">
                                     @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="id" value="{{ $contact->id }}">
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Name</span>
+                                            <span class="input-group-text">{{ __('Name') }}</span>
                                         </div>
-                                        <input type="text" name="name" value="{{ old('name', $user->name ?? '') }}" class="@error('name') is-invalid @enderror form-control">
+                                        <input readonly type="text" name="name" value="{{ $contact->name }}" class="@error('name') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('name')
@@ -55,9 +53,9 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Email</span>
+                                            <span class="input-group-text">{{ __('Email') }}</span>
                                         </div>
-                                        <input type="text" name="email" value="{{ old('email', $user->email ?? '') }}" class="@error('email') is-invalid @enderror form-control">
+                                        <input readonly type="text" name="email" value="{{ $contact->email }}" class="@error('email') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('email')
@@ -66,27 +64,52 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Password</span>
+                                            <span class="input-group-text">{{ __('Phone') }}</span>
                                         </div>
-                                        <input type="password" name="password" value="{{ old('password') }}" class="@error('password') is-invalid @enderror form-control">
+                                        <input readonly type="text" name="phone" value="{{ $contact->phone }}" class="@error('phone') is-invalid @enderror form-control">
                                     </div>
 
-                                    @error('password')
+                                    @error('phone')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Password Confirmation</span>
+                                            <span class="input-group-text">{{ __('Subject') }}</span>
                                         </div>
-                                        <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" class="@error('password_confirmation') is-invalid @enderror form-control">
+                                        <input readonly type="text" name="subject" value="{{ $contact->subject }}" class="@error('subject') is-invalid @enderror form-control">
                                     </div>
 
-                                    @error('password_confirmation')
+                                    @error('subject')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="submit" class="btn btn-outline-info">{{ isset($user) ? 'Update' : 'Create' }}</button>
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">{{ __('Message') }}</span>
+                                        </div>
+                                        <textarea readonly class="@error('message') is-invalid @enderror form-control" name="message">{{ $contact->message }}</textarea>
+                                    </div>
+
+                                    @error('message')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <div class="form-group mb-4">
+                                        <label>{{ __('Status') }}</label>
+                                        <select name="status" class="form-control">
+                                            <option value="Approved" {{ $contact->status === 'Approved' ? 'selected' : '' }}>{{ __('Approved')  }}</option>
+                                            <option value="Pending" {{ $contact->status === 'Pending' ? 'selected' : '' }}>{{ __('Pending')  }}</option>
+                                            <option value="Rejected" {{ $contact->status === 'Rejected' ? 'selected' : '' }}>{{ __('Rejected')  }}</option>
+                                            <option value="In Progress" {{ $contact->status === 'In Progress' ? 'selected' : '' }}>{{ __('In Progress')  }}</option>
+                                        </select>
+                                    </div>
+
+                                    @error('status')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <button type="submit" class="btn btn-outline-info">{{ __('Update') }}</button>
                                 </form>
 
                             </div>

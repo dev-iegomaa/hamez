@@ -30,7 +30,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($setting) ? 'Update' : 'Create New' }} Service</h4>
+                                        <h4>{{ isset($setting) ? __('Update Service') : __('Create New Service') }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -44,9 +44,9 @@
                                     @csrf
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Title English</span>
+                                            <span class="input-group-text">{{ __('Title English') }}</span>
                                         </div>
-                                        <input type="text" name="title_en" value="{{ old('title_en', isset($service) ? $service->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
+                                        <input type="text" name="title_en" style="direction: ltr;" value="{{ old('title_en', isset($service) ? $service->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('title_en')
@@ -56,7 +56,7 @@
                                     <div class="input-group mb-4">
                                         <input type="text" name="title_ar" value="{{ old('title_ar', isset($service) ? $service->getTranslation('title', 'ar') : '') }}" style="direction: rtl" class="@error('title_ar') is-invalid @enderror form-control">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Title Arabic</span>
+                                            <span class="input-group-text">{{ __('Title Arabic') }}</span>
                                         </div>
                                     </div>
 
@@ -66,9 +66,9 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Description English</span>
+                                            <span class="input-group-text">{{ __('Description English') }}</span>
                                         </div>
-                                        <input type="text" name="description_en" value="{{ old('description_en', isset($service) ? $service->getTranslation('description', 'en') : '') }}" class="@error('description_en') is-invalid @enderror form-control">
+                                        <textarea style="direction: ltr;" class="@error('description_en') is-invalid @enderror form-control" style="direction: ltr;" name="description_en">{{ old('description_en', isset($service) ? $service->getTranslation('description', 'en') : '') }}</textarea>
                                     </div>
 
                                     @error('description_en')
@@ -76,9 +76,9 @@
                                     @enderror
 
                                     <div class="input-group mb-4">
-                                        <input type="text" name="description_ar" value="{{ old('description_ar', isset($service) ? $service->getTranslation('description', 'ar') : '') }}" style="direction: rtl" class="@error('description_ar') is-invalid @enderror form-control">
+                                        <textarea class="@error('description_ar') is-invalid @enderror form-control" style="direction: rtl;" name="description_ar">{{ old('description_ar', isset($service) ? $service->getTranslation('description', 'ar') : '') }}</textarea>
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Description Arabic</span>
+                                            <span class="input-group-text">{{ __('Description Arabic') }}</span>
                                         </div>
                                     </div>
 
@@ -88,9 +88,9 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Price English</span>
+                                            <span class="input-group-text">{{ __('Price English') }}</span>
                                         </div>
-                                        <input type="text" name="price_en" value="{{ old('price_en', isset($service) ? $service->getTranslation('price', 'en') : '') }}" class="@error('price_en') is-invalid @enderror form-control">
+                                        <input style="direction: ltr;" type="text" name="price_en" value="{{ old('price_en', isset($service) ? $service->getTranslation('price', 'en') : '') }}" class="@error('price_en') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('price_en')
@@ -100,7 +100,7 @@
                                     <div class="input-group mb-4">
                                         <input type="text" name="price_ar" value="{{ old('price_ar', isset($service) ? $service->getTranslation('price', 'ar') : '') }}" style="direction: rtl" class="@error('price_ar') is-invalid @enderror form-control">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Price Arabic</span>
+                                            <span class="input-group-text">{{ __('Price Arabic') }}</span>
                                         </div>
                                     </div>
 
@@ -121,7 +121,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="submit" class="btn btn-outline-info">{{ isset($service) ? 'Update' : 'Create' }}</button>
+                                    <button type="submit" class="btn btn-outline-info">{{ isset($service) ? __('Update') : __('Create') }}</button>
                                 </form>
 
                             </div>

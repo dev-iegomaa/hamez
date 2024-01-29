@@ -29,15 +29,15 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Category Table</h4>
-                                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Create New Category</a>
+                                        <h4>{{ __('Category Table') }}</h4>
+                                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary">{{ __('Create New Category') }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
                                 <div class="table-responsive">
                                     <table class="table mb-4">
-                                        <caption>List of all categories</caption>
+                                        <caption>{{ __('List of all categories') }}</caption>
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
@@ -54,12 +54,7 @@
                                                     <td>{{ $category->getTranslation('title', 'en') }}</td>
                                                     <td>{{ $category->getTranslation('title', 'ar') }}</td>
                                                     <td>
-                                                        <form action="{{ route('admin.category.delete') }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="hidden" name="id" value="{{ $category->id }}">
-                                                            <input type="submit" class="btn btn-outline-danger" value="{{ __('Delete') }}">
-                                                        </form>
+                                                        <a href="{{ route('admin.category.delete', [base64_encode($category->id)]) }}" data-confirm-delete="true"  class="btn btn-outline-danger">{{ __('Delete') }}</a>
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('admin.category.edit', [base64_encode($category->id)]) }}" class="btn btn-outline-warning">{{ __('Update') }}</a>

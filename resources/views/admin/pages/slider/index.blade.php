@@ -29,15 +29,15 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Slider Table</h4>
-                                        <a href="{{ route('admin.slider.create') }}" class="btn btn-primary">Create New Slider</a>
+                                        <h4>{{ __('Slider Table') }}</h4>
+                                        <a href="{{ route('admin.slider.create') }}" class="btn btn-primary">{{ __('Create New Slider') }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
                                 <div class="table-responsive">
                                     <table class="table mb-4">
-                                        <caption>List of all sliders</caption>
+                                        <caption>{{ __('List of all sliders') }}</caption>
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
@@ -58,12 +58,7 @@
                                                         <img src="{{ asset($slider->image) }}" width="100" alt="slider image">
                                                     </td>
                                                     <td>
-                                                        <form action="{{ route('admin.slider.delete') }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="hidden" name="id" value="{{ $slider->id }}">
-                                                            <input type="submit" class="btn btn-outline-danger" value="{{ __('Delete') }}">
-                                                        </form>
+                                                        <a href="{{ route('admin.slider.delete', [base64_encode($slider->id)]) }}" data-confirm-delete="true"  class="btn btn-outline-danger">{{ __('Delete') }}</a>
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('admin.slider.edit', [base64_encode($slider->id)]) }}" class="btn btn-outline-warning">{{ __('Update') }}</a>

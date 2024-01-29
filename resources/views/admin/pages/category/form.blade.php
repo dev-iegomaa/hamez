@@ -30,7 +30,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($category) ? 'Update' : 'Create New' }} Slider</h4>
+                                        <h4>{{ isset($category) ? __('Update Category') : __('Create New Category') }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -44,19 +44,19 @@
                                     @csrf
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Title English</span>
+                                            <span class="input-group-text">{{ __('Title English') }}</span>
                                         </div>
-                                        <input type="text" name="title_en" value="{{ old('title_en', isset($category) ? $category->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
+                                        <input type="text" name="title_en" style="direction: ltr;" value="{{ old('title_en', isset($category) ? $category->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('title_en')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
-                                    <div class="input-group mb-5">
+                                    <div class="input-group mb-4">
                                         <input type="text" name="title_ar" value="{{ old('title_ar', isset($category) ? $category->getTranslation('title', 'ar') : '') }}" style="direction: rtl" class="@error('title_ar') is-invalid @enderror form-control">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">Title Arabic</span>
+                                            <span class="input-group-text">{{ __('Title Arabic') }}</span>
                                         </div>
                                     </div>
 
@@ -64,7 +64,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="submit" class="btn btn-outline-info">{{ isset($category) ? 'Update' : 'Create' }}</button>
+                                    <button type="submit" class="btn btn-outline-info">{{ isset($category) ? __('Update') : __('Create') }}</button>
                                 </form>
 
                             </div>

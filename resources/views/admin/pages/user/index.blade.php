@@ -29,20 +29,20 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>User Table</h4>
-                                        <a href="{{ route('admin.user.create') }}" class="btn btn-primary">Create New User</a>
+                                        <h4>{{ __('User Table') }}</h4>
+                                        <a href="{{ route('admin.user.create') }}" class="btn btn-primary">{{ __('Create New User') }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
                                 <div class="table-responsive">
                                     <table class="table mb-4">
-                                        <caption>List of all users</caption>
+                                        <caption>{{ __('List of all users') }}</caption>
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
+                                            <th>{{ __('Name') }}</th>
+                                            <th>{{ __('Email') }}</th>
                                             <th>{{ __('Delete') }}</th>
                                             <th>{{ __('Update') }}</th>
                                         </tr>
@@ -54,12 +54,7 @@
                                                     <td>{{ $user->name }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>
-                                                        <form action="{{ route('admin.user.delete') }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="hidden" name="id" value="{{ $user->id }}">
-                                                            <input type="submit" class="btn btn-outline-danger" value="{{ __('Delete') }}">
-                                                        </form>
+                                                        <a href="{{ route('admin.user.delete', [base64_encode($user->id)]) }}" data-confirm-delete="true"  class="btn btn-outline-danger">{{ __('Delete') }}</a>
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('admin.user.edit', [base64_encode($user->id)]) }}" class="btn btn-outline-warning">{{ __('Update') }}</a>

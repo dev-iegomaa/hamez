@@ -29,15 +29,15 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Faq Table</h4>
-                                        <a href="{{ route('admin.faq.create') }}" class="btn btn-primary">Create New Faq</a>
+                                        <h4>{{ __('Faq Table') }}</h4>
+                                        <a href="{{ route('admin.faq.create') }}" class="btn btn-primary">{{ __('Create New Faq') }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
                                 <div class="table-responsive">
                                     <table class="table mb-4">
-                                        <caption>List of all faqs</caption>
+                                        <caption>{{ __('List of all faqs') }}</caption>
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
@@ -58,12 +58,7 @@
                                                     <td>{{ $faq->getTranslation('answer', 'en') }}</td>
                                                     <td>{{ $faq->getTranslation('answer', 'ar') }}</td>
                                                     <td>
-                                                        <form action="{{ route('admin.faq.delete') }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="hidden" name="id" value="{{ $faq->id }}">
-                                                            <input type="submit" class="btn btn-outline-danger" value="{{ __('Delete') }}">
-                                                        </form>
+                                                        <a href="{{ route('admin.faq.delete', [base64_encode($faq->id)]) }}" data-confirm-delete="true"  class="btn btn-outline-danger">{{ __('Delete') }}</a>
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('admin.faq.edit', [base64_encode($faq->id)]) }}" class="btn btn-outline-warning">{{ __('Update') }}</a>

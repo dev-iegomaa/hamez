@@ -3,82 +3,44 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Service\DeleteServiceRequest;
+use App\Http\Interfaces\Admin\ServiceInterface;
 use App\Http\Requests\Admin\Service\ServiceRequest;
-use App\Models\Category;
-use App\Models\Service;
 
 class ServiceController extends Controller
 {
+    private $interface;
+    public function __construct(ServiceInterface $interface)
+    {
+        $this->interface = $interface;
+    }
+
     public function index()
     {
-        $services = Service::select(['id', 'title', 'price', 'description', 'category_id'])->get();
-        return view('admin.pages.service.index', compact('services'));
+        return $this->interface->index();
     }
 
     public function create()
     {
-        $categories = Category::select(['id', 'title'])->get();
-        return view('admin.pages.service.form', compact('categories'));
+        return $this->interface->create();
     }
 
     public function store(ServiceRequest $request)
     {
-        Service::create([
-            'title' => [
-                'en' => $request->title_en,
-                'ar' => $request->title_ar
-            ],
-            'description' => [
-                'en' => $request->description_en,
-                'ar' => $request->description_ar
-            ],
-            'price' => [
-                'en' => $request->price_en,
-                'ar' => $request->price_ar
-            ],
-            'category_id' => $request->category_id
-        ]);
-        toast('Service Was Created Successfully', 'success');
-        return redirect(route('admin.service.index'));
+        return $this->interface->store($request);
     }
 
-    public function delete(DeleteServiceRequest $request)
+    public function delete($id)
     {
-        Service::select('id')->find($request->id)->delete();
-        toast('Service Was Deleted Successfully', 'success');
-        return back();
+        return $this->interface->delete($id);
     }
 
     public function edit($id)
     {
-        $service = Service::select(['id', 'title', 'price', 'description', 'category_id'])->find(base64_decode($id));
-        if ($service) {
-            $categories = Category::select(['id', 'title'])->get();
-            return view('admin.pages.service.form', compact('service', 'categories'));
-        }
-        toast('Sorry, Can\'t Service Found', 'error');
-        return back();
+        return $this->interface->edit($id);
     }
 
     public function update(ServiceRequest $request)
     {
-        Service::find($request->id)->update([
-            'title' => [
-                'en' => $request->title_en,
-                'ar' => $request->title_ar
-            ],
-            'description' => [
-                'en' => $request->description_en,
-                'ar' => $request->description_ar
-            ],
-            'price' => [
-                'en' => $request->price_en,
-                'ar' => $request->price_ar
-            ],
-            'category_id' => $request->category_id
-        ]);
-        toast('Service Was Updated Successfully', 'success');
-        return redirect(route('admin.service.index'));
+        return $this->interface->update($request);
     }
 }

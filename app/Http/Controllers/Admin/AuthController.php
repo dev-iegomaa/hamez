@@ -3,32 +3,29 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Interfaces\Admin\AuthInterface;
 use App\Http\Requests\Admin\Auth\LoginRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+    private $interface;
+    public function __construct(AuthInterface $interface)
+    {
+        $this->interface = $interface;
+    }
+
     public function index()
     {
-        return view('admin.pages.auth.index');
+        return $this->interface->index();
     }
 
     public function login(LoginRequest $request)
     {
-        $credentials = $request->only(['email', 'password']);
-        if (Auth::attempt($credentials)) {
-            toast('Login Successfully', 'success');
-            return redirect(route('admin.index'));
-        }
-        toast('Login Failure', 'error');
-        return back();
+        return $this->interface->login($request);
     }
 
     public function logout()
     {
-        Session::flush();
-        Auth::logout();
-        return redirect(route('admin.auth.index'));
+        return $this->interface->logout();
     }
 }

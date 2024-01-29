@@ -29,26 +29,26 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Service Table</h4>
-                                        <a href="{{ route('admin.service.create') }}" class="btn btn-primary">Create New Service</a>
+                                        <h4>{{ __('Service Table') }}</h4>
+                                        <a href="{{ route('admin.service.create') }}" class="btn btn-primary">{{ __('Create New Service') }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="widget-content widget-content-area">
                                 <div class="table-responsive">
                                     <table class="table mb-4">
-                                        <caption>List of all services</caption>
+                                        <caption>{{ __('List of all services') }}</caption>
                                         <thead>
                                         <tr>
                                             <th class="text-center">#</th>
-                                            <th>Title English</th>
-                                            <th>Title Arabic</th>
-                                            <th>Description English</th>
-                                            <th>Description Arabic</th>
-                                            <th>Price English</th>
-                                            <th>Price Arabic</th>
-                                            <th>Category English</th>
-                                            <th>Category Arabic</th>
+                                            <th>{{ __('Title English') }}</th>
+                                            <th>{{ __('Title Arabic') }}</th>
+                                            <th>{{ __('Description English') }}</th>
+                                            <th>{{ __('Description Arabic') }}</th>
+                                            <th>{{ __('Price English') }}</th>
+                                            <th>{{ __('Price Arabic') }}</th>
+                                            <th>{{ __('Category English') }}</th>
+                                            <th>{{ __('Category Arabic') }}</th>
                                             <th>{{ __('Delete') }}</th>
                                             <th>{{ __('Update') }}</th>
                                         </tr>
@@ -66,12 +66,7 @@
                                                     <td>{{ $service->category->getTranslation('title', 'en') }}</td>
                                                     <td>{{ $service->category->getTranslation('title', 'ar') }}</td>
                                                     <td>
-                                                        <form action="{{ route('admin.service.delete') }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <input type="hidden" name="id" value="{{ $service->id }}">
-                                                            <input type="submit" class="btn btn-outline-danger" value="{{ __('Delete') }}">
-                                                        </form>
+                                                        <a href="{{ route('admin.service.delete', [base64_encode($service->id)]) }}" data-confirm-delete="true"  class="btn btn-outline-danger">{{ __('Delete') }}</a>
                                                     </td>
                                                     <td>
                                                         <a href="{{ route('admin.service.edit', [base64_encode($service->id)]) }}" class="btn btn-outline-warning">{{ __('Update') }}</a>

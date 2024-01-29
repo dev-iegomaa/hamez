@@ -30,7 +30,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($faq) ? 'Update' : 'Create New' }} Faq</h4>
+                                        <h4>{{ isset($faq) ? __('Update Faq') : __('Create New Faq') }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">{{ __('Question English') }}</span>
                                         </div>
-                                        <textarea class="form-control" name="question_en">{{ old('question_en', isset($faq) ? $faq->getTranslation('question', 'en') : '') }}</textarea>
+                                        <textarea class="form-control" style="direction: ltr;" name="question_en">{{ old('question_en', isset($faq) ? $faq->getTranslation('question', 'en') : '') }}</textarea>
                                     </div>
 
                                     @error('question_en')
@@ -68,7 +68,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">{{ __('Answer English') }}</span>
                                         </div>
-                                        <textarea class="form-control" name="answer_en">{{ old('answer_en', isset($faq) ? $faq->getTranslation('answer', 'en') : '') }}</textarea>
+                                        <textarea class="form-control" style="direction: ltr;" name="answer_en">{{ old('answer_en', isset($faq) ? $faq->getTranslation('answer', 'en') : '') }}</textarea>
                                     </div>
 
                                     @error('answer_en')
@@ -86,7 +86,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="submit" class="btn btn-outline-info">{{ isset($faq) ? 'Update' : 'Create' }}</button>
+                                    <button type="submit" class="btn btn-outline-info">{{ isset($faq) ? __('Update') : __('Create') }}</button>
                                 </form>
 
                             </div>

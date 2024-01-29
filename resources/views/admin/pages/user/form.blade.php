@@ -30,7 +30,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($user) ? 'Update' : 'Create New' }} User</h4>
+                                        <h4>{{ isset($user) ? 'Update User' : 'Create New User' }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                                     @csrf
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Name</span>
+                                            <span class="input-group-text">{{ __('Name') }}</span>
                                         </div>
                                         <input type="text" name="name" value="{{ old('name', $user->name ?? '') }}" class="@error('name') is-invalid @enderror form-control">
                                     </div>
@@ -55,7 +55,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Email</span>
+                                            <span class="input-group-text">{{ __('Email') }}</span>
                                         </div>
                                         <input type="text" name="email" value="{{ old('email', $user->email ?? '') }}" class="@error('email') is-invalid @enderror form-control">
                                     </div>
@@ -66,7 +66,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Password</span>
+                                            <span class="input-group-text">{{ __('Password') }}</span>
                                         </div>
                                         <input type="password" name="password" value="{{ old('password') }}" class="@error('password') is-invalid @enderror form-control">
                                     </div>
@@ -77,7 +77,7 @@
 
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Password Confirmation</span>
+                                            <span class="input-group-text">{{ __('Password Confirmation') }}</span>
                                         </div>
                                         <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" class="@error('password_confirmation') is-invalid @enderror form-control">
                                     </div>
@@ -86,7 +86,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
-                                    <button type="submit" class="btn btn-outline-info">{{ isset($user) ? 'Update' : 'Create' }}</button>
+                                    <button type="submit" class="btn btn-outline-info">{{ isset($user) ? __('Update') : __('Create') }}</button>
                                 </form>
 
                             </div>

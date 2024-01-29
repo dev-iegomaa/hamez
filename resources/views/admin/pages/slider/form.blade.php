@@ -34,7 +34,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($slider) ? 'Update' : 'Create New' }} Slider</h4>
+                                        <h4>{{ isset($slider) ? __('Update Slider') : __('Create New Slider') }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -48,9 +48,9 @@
                                     @csrf
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Title English</span>
+                                            <span class="input-group-text">{{ __('Title English') }}</span>
                                         </div>
-                                        <input type="text" name="title_en" value="{{ old('title_en', isset($slider) ? $slider->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
+                                        <input type="text" style="direction: ltr;" name="title_en" value="{{ old('title_en', isset($slider) ? $slider->getTranslation('title', 'en') : '') }}" class="@error('title_en') is-invalid @enderror form-control">
                                     </div>
 
                                     @error('title_en')
@@ -60,7 +60,7 @@
                                     <div class="input-group mb-5">
                                         <input type="text" name="title_ar" value="{{ old('title_ar', isset($slider) ? $slider->getTranslation('title', 'ar') : '') }}" style="direction: rtl" class="@error('title_ar') is-invalid @enderror form-control">
                                         <div class="input-group-append">
-                                            <span class="input-group-text">Title Arabic</span>
+                                            <span class="input-group-text">{{ __('Title Arabic') }}</span>
                                         </div>
                                     </div>
 
@@ -73,7 +73,7 @@
                                             <div class="widget-header">
                                                 <div class="row">
                                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                                        <h4>Slider Image</h4>
+                                                        <h4>{{ __('Slider Image') }}</h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,7 +94,7 @@
                                     @error('image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-                                    <button type="submit" class="btn btn-outline-info">{{ isset($slider) ? 'Update' : 'Create' }}</button>
+                                    <button type="submit" class="btn btn-outline-info">{{ isset($slider) ? __('Update') : __('Create') }}</button>
                                 </form>
 
                             </div>

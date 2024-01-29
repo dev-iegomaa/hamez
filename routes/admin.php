@@ -57,7 +57,7 @@ Route::group(
                 Route::get('', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete', 'delete')->name('delete');
+                Route::delete('delete/{id}', 'delete')->name('delete');
                 Route::get('edit/{id}', 'edit')->name('edit');
                 Route::put('update', 'update')->name('update');
             });
@@ -68,7 +68,7 @@ Route::group(
                 Route::get('', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete', 'delete')->name('delete');
+                Route::delete('delete/{id}', 'delete')->name('delete');
                 Route::get('edit/{id}', 'edit')->name('edit');
                 Route::put('update', 'update')->name('update');
             });
@@ -79,7 +79,7 @@ Route::group(
                 Route::get('', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete', 'delete')->name('delete');
+                Route::delete('delete/{id}', 'delete')->name('delete');
                 Route::get('edit/{id}', 'edit')->name('edit');
                 Route::put('update', 'update')->name('update');
             });
@@ -90,7 +90,7 @@ Route::group(
                 Route::get('', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete', 'delete')->name('delete');
+                Route::delete('delete/{id}', 'delete')->name('delete');
                 Route::get('edit/{id}', 'edit')->name('edit');
                 Route::put('update', 'update')->name('update');
             });
@@ -101,7 +101,7 @@ Route::group(
                 Route::get('', 'index')->name('index');
                 Route::get('create', 'create')->name('create');
                 Route::post('store', 'store')->name('store');
-                Route::delete('delete', 'delete')->name('delete');
+                Route::delete('delete/{id}', 'delete')->name('delete');
                 Route::get('edit/{id}', 'edit')->name('edit');
                 Route::put('update', 'update')->name('update');
             });
@@ -110,7 +110,9 @@ Route::group(
         Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
             Route::controller(ContactController::class)->group(function () {
                 Route::get('', 'index')->name('index');
-                Route::delete('delete', 'delete')->name('delete');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::get('edit/{id}', 'edit')->name('edit');
+                Route::put('update', 'update')->name('update');
             });
         });
 
