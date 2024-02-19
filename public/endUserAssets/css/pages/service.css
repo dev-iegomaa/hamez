@@ -1,0 +1,41 @@
+/* Start Banner Section */
+
+#banner {
+    background: url("../../images/service/services.webp") no-repeat rgba(0 0 0 / 60%) 50% 40%;
+}
+
+/* End Banner Section */
+
+/* Start Service Section */
+
+#service {
+    background: url("../../images/service/bg2.webp") no-repeat fixed;
+    background-size: cover;
+}
+
+#service h2 {
+    color: var(--primary-color);
+}
+
+#service button {
+    color: var(--dark-color);
+}
+
+#service .nav-item {
+    background-color: var(--primary-color);
+    border-radius: 0.375rem;
+}
+
+#service button.active {
+    background-color: var(--third-color);
+}
+
+#service #pills-tabContent div {
+    background-color: var(--primary-color);
+}
+
+#service #pills-tabContent article p:last-of-type {
+    color: var(--third-color);
+}
+
+/* End Service Section */

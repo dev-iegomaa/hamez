@@ -20,7 +20,12 @@ class SettingRepository implements SettingInterface
     {
         $setting = Setting::find(1);
         if ($request->logo) {
-            $logo = $this->uploadImage($request->logo, self::PATH, $setting->getRawOriginal('logo'));
+            if ($setting) {
+                $oldImage = $setting->logo;
+            } else {
+                $oldImage = null;
+            }
+            $logo = $this->uploadImage($request->logo, self::PATH, $oldImage);
         }
         Setting::updateOrCreate(['id' => 1], [
             'email' => $request->email,

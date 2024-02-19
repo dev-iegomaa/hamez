@@ -23,7 +23,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => 'required|email|exists:users,email|max:255',
-            'password' => 'required|string|max:255'
+            'password' => 'required|string|max:255',
+            'g-recaptcha-response' => 'required|captcha'
         ];
     }
 }

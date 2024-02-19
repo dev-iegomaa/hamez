@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBookController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ServicesTermsController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UserController;
@@ -107,12 +109,29 @@ Route::group(
             });
         });
 
+        Route::group(['prefix' => 'terms', 'as' => 'services.terms.'], function () {
+            Route::controller(ServicesTermsController::class)->group(function () {
+                Route::get('', 'index')->name('index');
+                Route::get('create', 'create')->name('create');
+                Route::post('store', 'store')->name('store');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::get('edit/{id}', 'edit')->name('edit');
+                Route::put('update', 'update')->name('update');
+            });
+        });
+
         Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
             Route::controller(ContactController::class)->group(function () {
                 Route::get('', 'index')->name('index');
                 Route::delete('delete/{id}', 'delete')->name('delete');
                 Route::get('edit/{id}', 'edit')->name('edit');
                 Route::put('update', 'update')->name('update');
+            });
+        });
+
+        Route::group(['prefix' => 'book', 'as' => 'book.'], function () {
+            Route::controller(AdminBookController::class)->group(function () {
+                Route::get('', 'index')->name('index');
             });
         });
 
@@ -127,4 +146,3 @@ Route::group(
     });
 
 });
-

@@ -18,7 +18,8 @@ class CategoryRequest extends FormRequest
     {
         return [
             'title_en' => 'required|string|max:255',
-            'title_ar' => 'required|string|max:255'
+            'title_ar' => 'required|string|max:255',
+            'icon' => 'nullable|string|max:255'
         ];
     }
 
@@ -27,7 +28,8 @@ class CategoryRequest extends FormRequest
         return [
             'id' => 'required|integer|exists:categories,id',
             'title_en' => 'required|string|max:255',
-            'title_ar' => 'required|string|max:255'
+            'title_ar' => 'required|string|max:255',
+            'icon' => 'nullable|string|max:255'
         ];
     }
 

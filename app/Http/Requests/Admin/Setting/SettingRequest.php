@@ -30,7 +30,7 @@ class SettingRequest extends FormRequest
             'location_en' => 'required|string|max:255',
             'location_ar' => 'required|string|max:255',
             'facebook' => 'nullable|url|max:255',
-            'whatsapp' => 'nullable|url|max:255',
+            'whatsapp' => 'required|string|max:255',
             'instagram' => 'nullable|url|max:255',
             'tiktok' => 'nullable|url|max:255',
             'snapchat' => 'nullable|url|max:255',

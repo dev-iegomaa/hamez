@@ -28,9 +28,9 @@ class InitProject extends Command
     public function handle(): int
     {
         User::create([
-            'name' => 'ibrahim',
-            'email' => 'ibrahim@admin.com',
-            'password' => Hash::make('123')
+            'name' => 'ahmed',
+            'email' => 'ahmed@admin.com',
+            'password' => Hash::make('123ahmed123')
         ]);
         return self::SUCCESS;
     }

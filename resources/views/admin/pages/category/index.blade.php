@@ -43,6 +43,8 @@
                                             <th class="text-center">#</th>
                                             <th>{{ __('Title English') }}</th>
                                             <th>{{ __('Title Arabic') }}</th>
+                                            <th>{{ __('Image') }}</th>
+                                            <th>{{ __('Icon') }}</th>
                                             <th>{{ __('Delete') }}</th>
                                             <th>{{ __('Update') }}</th>
                                         </tr>
@@ -53,6 +55,12 @@
                                                     <td class="text-center">{{ ++$key }}</td>
                                                     <td>{{ $category->getTranslation('title', 'en') }}</td>
                                                     <td>{{ $category->getTranslation('title', 'ar') }}</td>
+                                                    <td>
+                                                        <img src="{{ asset($category->image) }}" width="100" alt="category image">
+                                                    </td>
+                                                    <td>
+                                                        <i class="{{ $category->icon }} fa-4x"></i>
+                                                    </td>
                                                     <td>
                                                         <a href="{{ route('admin.category.delete', [base64_encode($category->id)]) }}" data-confirm-delete="true"  class="btn btn-outline-danger">{{ __('Delete') }}</a>
                                                     </td>

@@ -1,0 +1,100 @@
+/* Start Master Style */
+
+:root {
+    --white-color: #fff;
+    --dark-color: #000;
+    --primary-color: #652f15;
+    --secondary-color: #8a4e2d;
+    --third-color: #e57214;
+    --transition-duration: .5s;
+}
+
+html::-webkit-scrollbar {
+    width: 5px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--third-color);
+    border-radius: 3px;
+}
+
+::selection {
+    color: var(--white-color);
+    background-color: var(--secondary-color);
+}
+
+#whatsapp_chat,
+#scroll-to-top {
+    cursor: pointer;
+    background-color: var(--primary-color) !important;
+    width: 50px;
+    height: 50px;
+    color: var(--white-color);
+    box-shadow: 0 0 20px 1px rgba(0 0 0 / 37%);
+    position: fixed;
+    bottom: -70px;
+    right: 25px;
+    transition-property: bottom, background-color;
+    transition-duration: var(--transition-duration);
+}
+
+#whatsapp_chat {
+    right: 85px;
+}
+
+#whatsapp_chat:hover,
+#scroll-to-top:hover {
+    background-color: var(--white-color) !important;
+}
+
+.overlay {
+    height: 100%;
+    background-color: rgba(0 0 0 / 30%);
+    transition-property: background-color;
+    transition-duration: var(--transition-duration);
+}
+
+a.btn {
+    background-color: var(--third-color);
+    letter-spacing: 0.03em;
+    font-size: 18px;
+    color: var(--white-color);
+    transition-property: color, background-color;
+    transition-duration: var(--transition-duration);
+}
+
+a.btn:hover {
+    background-color: var(--white-color);
+    color: var(--third-color);
+}
+
+#loading {
+    z-index: 100000;
+    background-color: var(--white-color);
+    transition-property: visibility;
+    transition-duration: var(--transition-duration);
+}
+
+#loading div {
+    background: url("../../images/loading.gif") no-repeat center center;
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+/*#loading img {*/
+/*    position: relative;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    transition-property: opacity;*/
+/*    transition-duration: var(--transition-duration);*/
+/*    opacity: 1;*/
+/*    width: 300px;*/
+/*}*/
+
+/* End Master Style */

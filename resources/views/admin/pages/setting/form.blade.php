@@ -34,7 +34,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>{{ isset($setting) ? 'Update Setting' : 'Create New Setting' }}</h4>
+                                        <h4>{{ isset($setting) ? __('Update Setting') : __('Create New Setting') }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -166,13 +166,13 @@
                                     <div class="form-group mb-4">
                                         <label>{{ __('Opening From') }}</label>
                                         <select name="opening_from" class="form-control">
-                                            <option value="saturday">Saturday</option>
-                                            <option value="sunday">Sunday</option>
-                                            <option value="monday">Monday</option>
-                                            <option value="tuesday">Tuesday</option>
-                                            <option value="wednesday">Wednesday</option>
-                                            <option value="thursday">Thursday</option>
-                                            <option value="friday">Friday</option>
+                                            <option value="saturday">{{ __('saturday') }}</option>
+                                            <option value="sunday">{{ __('sunday') }}</option>
+                                            <option value="monday">{{ __('monday') }}</option>
+                                            <option value="tuesday">{{ __('tuesday') }}</option>
+                                            <option value="wednesday">{{ __('wednesday') }}</option>
+                                            <option value="thursday">{{ __('thursday') }}</option>
+                                            <option value="friday">{{ __('friday') }}</option>
                                         </select>
                                     </div>
 
@@ -183,13 +183,13 @@
                                     <div class="form-group mb-4">
                                         <label>{{ __('Opening To') }}</label>
                                         <select name="opening_to" class="form-control">
-                                            <option value="saturday">{{ __('Saturday') }}</option>
-                                            <option value="sunday">{{ __('Sunday') }}</option>
-                                            <option value="monday">{{ __('Monday') }}</option>
-                                            <option value="tuesday">{{ __('Tuesday') }}</option>
-                                            <option value="wednesday">{{ __('Wednesday') }}</option>
-                                            <option value="thursday">{{ __('Thursday') }}</option>
-                                            <option value="friday">{{ __('Friday') }}</option>
+                                            <option value="saturday">{{ __('saturday') }}</option>
+                                            <option value="sunday">{{ __('sunday') }}</option>
+                                            <option value="monday">{{ __('monday') }}</option>
+                                            <option value="tuesday">{{ __('tuesday') }}</option>
+                                            <option value="wednesday">{{ __('wednesday') }}</option>
+                                            <option value="thursday">{{ __('thursday') }}</option>
+                                            <option value="friday">{{ __('friday') }}</option>
                                         </select>
                                     </div>
 
@@ -230,7 +230,7 @@
                                             </div>
                                             <div class="widget-content widget-content-area">
                                                 <div class="custom-file-container" data-upload-id="myFirstImage">
-                                                    <label>Upload (Single Image) <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
+                                                    <label>{{ __('Upload (Single Image)') }} <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
                                                     <label class="custom-file-container__custom-file" >
                                                         <input type="file" name="logo" class="@error('logo') is-invalid @enderror custom-file-container__custom-file__custom-file-input" accept="image/*">
                                                         <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />

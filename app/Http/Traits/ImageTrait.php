@@ -8,7 +8,7 @@ trait ImageTrait
     {
         $imageName = time() . "_$path." . $file->extension();
         if ($oldImage) {
-            unlink(public_path("uploaded/$path/" . $oldImage));
+            unlink(public_path($oldImage));
         }
         $file->move(public_path("uploaded/$path"), $imageName);
         return $imageName;

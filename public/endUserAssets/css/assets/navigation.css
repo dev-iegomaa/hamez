@@ -1,0 +1,11 @@
+/* Start Navigation Bar */
+
+nav {
+    background-color: #f0e8de;
+}
+
+nav .container > a {
+    width: 180px;
+}
+
+/* End Navigation Bar */

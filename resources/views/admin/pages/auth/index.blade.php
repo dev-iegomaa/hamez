@@ -66,6 +66,11 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
+                            <div class="mb-3">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                            </div>
+
                             <div class="d-sm-flex justify-content-between">
                                 <div class="field-wrapper">
                                     <button type="submit" class="btn btn-primary" value="">{{ __('Log In') }}</button>

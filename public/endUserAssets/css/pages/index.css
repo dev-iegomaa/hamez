@@ -1,0 +1,33 @@
+/* Start Slider Section */
+
+#slider .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#slider .carousel-control-prev-icon,
+#slider .carousel-control-next-icon {
+    background-image: none;
+    padding: 25px;
+    transition-property: background-color;
+    transition-duration: var(--transition-duration);
+    background-color: var(--primary-color);
+}
+
+#slider .carousel-control-prev-icon svg,
+#slider .carousel-control-next-icon svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#slider .carousel-control-prev-icon:hover,
+#slider .carousel-control-next-icon:hover {
+    background-color: var(--third-color);
+}
+
+
+/* End Slider Section */

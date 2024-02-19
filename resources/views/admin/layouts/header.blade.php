@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('endUserAssets/css/plugins/font-awesome/all.min.css') }}" type="text/css"/>
     @if(LaravelLocalization::getCurrentLocale() == 'en')
         <link rel="icon" type="image/x-icon" href="{{ asset('adminAssets/en/assets/img/favicon.ico') }}"/>
         <link href="{{ asset('adminAssets/en/assets/css/loader.css') }}" rel="stylesheet" type="text/css" />
@@ -158,7 +159,6 @@
                     </a>
                 </li>
 
-
                 <li class="menu">
                     <a href="{{ route('admin.slider.index') }}" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
@@ -182,6 +182,24 @@
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                             <span>{{ __('Settings') }}</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="menu">
+                    <a href="{{ route('admin.services.terms.index') }}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            <span>{{ __('Services Terms') }}</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="menu">
+                    <a href="{{ route('admin.book.index') }}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>{{ __('Books') }}</span>
                         </div>
                     </a>
                 </li>

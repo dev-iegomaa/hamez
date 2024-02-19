@@ -18,6 +18,7 @@
     <script src="{{ asset('adminAssets/ar/plugins/apex/apexcharts.min.js') }}"></script>
     <script src="{{ asset('adminAssets/ar/assets/js/dashboard/dash_1.js') }}"></script>
 @endif
+<script src="{{ asset('endUserAssets/js/plugins/font-awesome/all.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         App.init();

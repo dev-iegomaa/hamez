@@ -1,0 +1,41 @@
+/* Start Category Section */
+
+#category {
+    background: url("../../images/category/bg1.webp");
+    background-size: cover;
+}
+
+#category figure {
+    height: 270px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#category figure img {
+    transition-duration: var(--transition-duration);
+    transition-property: transform;
+}
+
+#category figure:hover img {
+    transform: scale(1.1);
+}
+
+#category figcaption {
+    border: thin solid #8e4c22;
+    border-radius: 3px;
+    width: calc(100% - 50px);
+    height: calc(270px - 50px);
+    margin: 25px;
+    transition-property: border-color;
+    transition-duration: var(--transition-duration);
+}
+
+#category figure:hover figcaption {
+    border-color: #d46a15;
+}
+
+#category figure:hover .overlay {
+    background-color: rgba(0 0 0 / 40%);
+}
+
+/* End Category Section */

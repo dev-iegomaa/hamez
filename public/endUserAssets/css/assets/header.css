@@ -1,0 +1,20 @@
+/* Start Header Section */
+
+#header {
+    background-color: var(--primary-color);
+}
+
+#header svg,
+#header p:first-of-type {
+    color: var(--third-color) !important;
+}
+
+#header svg.tiktok,
+#header svg.facebook,
+#header svg.instagram,
+#header svg.snapchat,
+#header p:last-of-type{
+    color: #ced2d5 !important;
+}
+
+/* End Header Section */

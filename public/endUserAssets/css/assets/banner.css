@@ -1,0 +1,16 @@
+/* Start Banner Section */
+
+#banner {
+    height: 75vh;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+
+#banner h1 {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* End Banner Section */

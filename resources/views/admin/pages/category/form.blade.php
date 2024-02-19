@@ -9,10 +9,14 @@
         <link href="{{ asset('adminAssets/en/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{ asset('adminAssets/en/assets/css/forms/theme-checkbox-radio.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('adminAssets/en/assets/css/forms/switches.css') }}">
+        <link href="{{ asset('adminAssets/en/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('adminAssets/en/plugins/file-upload/file-upload-with-preview.min.css') }}" rel="stylesheet" type="text/css" />
     @else
         <link href="{{ asset('adminAssets/ar/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{ asset('adminAssets/ar/assets/css/forms/theme-checkbox-radio.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('adminAssets/ar/assets/css/forms/switches.css') }}">
+        <link href="{{ asset('adminAssets/ar/assets/css/scrollspyNav.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('adminAssets/ar/plugins/file-upload/file-upload-with-preview.min.css') }}" rel="stylesheet" type="text/css" />
     @endif
 @endpush
 
@@ -36,7 +40,7 @@
                             </div>
                             <div class="widget-content widget-content-area">
 
-                                <form action="{{ isset($category) ? route('admin.category.update') : route('admin.category.store') }}" method="post">
+                                <form action="{{ isset($category) ? route('admin.category.update') : route('admin.category.store') }}" method="post" enctype="multipart/form-data">
                                     @if(isset($category))
                                         @method('PUT')
                                         <input type="hidden" name="id" value="{{ $category->id }}">
@@ -64,6 +68,44 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
 
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">{{ __('Icon') }}</span>
+                                        </div>
+                                        <input type="text" name="icon" value="{{ old('icon', isset($category) ? $category->icon : '') }}" class="@error('icon') is-invalid @enderror form-control">
+                                    </div>
+
+                                    @error('icon')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+
+                                    <div id="fuSingleFile">
+                                        <div>
+                                            <div class="widget-header">
+                                                <div class="row">
+                                                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                                        <h4>{{ __('Category Image') }}</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content widget-content-area">
+                                                <div class="custom-file-container" data-upload-id="myFirstImage">
+                                                    <label>{{ __('Upload (Single Image)') }} <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
+                                                    <label class="custom-file-container__custom-file" >
+                                                        <input type="file" name="image" class="@error('image') is-invalid @enderror custom-file-container__custom-file__custom-file-input" accept="image/*">
+                                                        <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                                                        <span class="custom-file-container__custom-file__custom-file-control"></span>
+                                                    </label>
+                                                    <div class="custom-file-container__image-preview"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @error('image')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+
                                     <button type="submit" class="btn btn-outline-info">{{ isset($category) ? __('Update') : __('Create') }}</button>
                                 </form>
 
@@ -83,8 +125,15 @@
     @if(LaravelLocalization::getCurrentLocale() == 'en')
         <script src="{{ asset('adminAssets/en/plugins/highlight/highlight.pack.js') }}"></script>
         <script src="{{ asset('adminAssets/en/assets/js/scrollspyNav.js') }}"></script>
+        <script src="{{ asset('adminAssets/en/plugins/blockui/jquery.blockUI.min.js') }}"></script>
+        <script src="{{ asset('adminAssets/en/plugins/file-upload/file-upload-with-preview.min.js') }}"></script>
     @else
         <script src="{{ asset('adminAssets/ar/plugins/highlight/highlight.pack.js') }}"></script>
         <script src="{{ asset('adminAssets/ar/assets/js/scrollspyNav.js') }}"></script>
+        <script src="{{ asset('adminAssets/ar/plugins/blockui/jquery.blockUI.min.js') }}"></script>
+        <script src="{{ asset('adminAssets/ar/plugins/file-upload/file-upload-with-preview.min.js') }}"></script>
     @endif
+    <script>
+        var firstUpload = new FileUploadWithPreview('myFirstImage')
+    </script>
 @endpush

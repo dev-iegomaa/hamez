@@ -1,0 +1,84 @@
+/* Start Banner Section */
+
+#banner {
+    background: url("../../images/contact/contact.webp") no-repeat rgba(0 0 0 / 60%) 50% 50%;
+}
+
+/* End Banner Section */
+
+/* Start Category Section */
+
+#category {
+    background: url("../../images/category/bg1.webp");
+    background-size: cover;
+}
+
+#category article {
+    background-color: var(--primary-color);
+}
+
+#category article svg {
+    color: var(--third-color);
+}
+
+#category article p:first-of-type {
+    color: #f4edc8;
+}
+
+#category article p:last-of-type {
+    color: #ae9284;
+}
+
+/* End Category Section */
+
+/* Start Contact Section */
+
+#contact {
+    background: url("../../images/service/bg2.webp") no-repeat fixed;
+    background-size: cover;
+}
+
+#contact form {
+    background-color: var(--primary-color);
+}
+
+#contact h2 {
+    color: var(--third-color);
+}
+
+#contact p {
+
+}
+
+#contact input,
+#contact textarea {
+    border: 1px solid var(--third-color);
+    border-radius: 5px;
+
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: var(--white-color);
+}
+
+#contact button {
+    background-color: var(--third-color);
+    letter-spacing: 0.03em;
+    font-size: 18px;
+    color: var(--white-color);
+    transition-property: color, background-color;
+    transition-duration: var(--transition-duration);
+}
+
+#contact button:hover {
+    background-color: var(--white-color);
+    color: var(--third-color);
+}
+
+/* End Contact Section */
