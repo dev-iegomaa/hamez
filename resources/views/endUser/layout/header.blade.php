@@ -115,7 +115,9 @@
 <nav class="navbar navbar-expand-lg py-3 z-3" style="position: sticky; top: -1px;" id="navigation">
     <div class="container">
         <a class="navbar-brand" href="{{ route('endUser.index') }}">
-            <img src="{{ $setting->logo }}" style="width: 180px; height: 40px; object-fit: cover;" alt="hamez logo"/>
+            @isset($setting)
+                <img src="{{ $setting->logo }}" style="width: 180px; height: 40px; object-fit: cover;" alt="hamez logo"/>
+            @endisset
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

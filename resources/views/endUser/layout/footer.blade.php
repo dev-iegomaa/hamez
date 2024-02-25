@@ -93,6 +93,8 @@
 </footer>
 <!-- End Footer Section -->
 
+<script src="//code.tidio.co/s5tvm2eawus47qwt1ry7lgjrihhsnxjl.js" async></script>
+
 <script src="{{ asset('endUserAssets/js/plugins/bootstrap/bootstrap.bundle.js') }}"></script>
 <script src="{{ asset('endUserAssets/js/plugins/font-awesome/all.min.js') }}"></script>
 <script src="{{ asset('endUserAssets/js/assets/scroll.js') }}"></script>

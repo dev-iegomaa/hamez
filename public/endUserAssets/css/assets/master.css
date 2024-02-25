@@ -33,13 +33,13 @@ html::-webkit-scrollbar-thumb {
     box-shadow: 0 0 20px 1px rgba(0 0 0 / 37%);
     position: fixed;
     bottom: -70px;
-    right: 25px;
+    left: 25px;
     transition-property: bottom, background-color;
     transition-duration: var(--transition-duration);
 }
 
 #whatsapp_chat {
-    right: 85px;
+    left: 85px;
 }
 
 #whatsapp_chat:hover,

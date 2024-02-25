@@ -3,8 +3,8 @@ window.addEventListener("load", function () {
     const whatsapp_chat = document.getElementById("whatsapp_chat");
     this.window.addEventListener("scroll", function () {
         if (window.scrollY >= 200) {
-            btn.style.bottom = "25px";
-            whatsapp_chat.style.bottom = "25px";
+            btn.style.bottom = "40px";
+            whatsapp_chat.style.bottom = "40px";
         } else {
             btn.style.bottom = "-60px";
             whatsapp_chat.style.bottom = "-60px";
